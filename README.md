@@ -3,12 +3,40 @@ A repository of scripts that can be used to create some of the most popular data
 
 ## Rain Cloud Plots
 
+The rain cloud plot script contains instructions for user input, and gives suggestions for changes that can be made to tweak the visualization.
+
 ![image](https://github.com/PBCAR/Visualizations/blob/main/Examples/raincloud.png)
+
+
+### Packages:
+
+This script uses 'ggplot2' and 'gghalves' packages
+
+### Changes Required:
+
+i) Set your working directory - This is the file location of your data to be analyzed. To set your working directory, go to:
+
+      Session > Set Working Directory > Choose Directory
+
+ii) Input the name of your data file (this script is set up to only import .csv files)
+
+iii) Changing the categorical variable to a factor if represented numerically (Line 27)
+
+iv) Input the name of the categorical and continuous variables to the ggplot (Line 37)
+
+v) Changing the x and y axes titles (Line 57)
+
+vi) Changing the title of the plot (Line 60)
+
+### Other Possible Changes:
+
+i) Set the opacity of various plot visuals using `alpha`
+ii) Change the size of visuals or text using `size`
+iii) Show/ suppress the legend (T/F) using `show.legend`
 
 ## Heatmaps
 
 The heatmap script utilizes 'pairwise complete' observations, meaning only individuals with missing data for the 2 variables being compared will be removed. User imput required at the beginning of the script only.
-
 
 ![image](https://github.com/PBCAR/Visualizations/blob/main/Examples/heatmap.png)
 
