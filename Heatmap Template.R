@@ -8,31 +8,33 @@
 
 setwd("~/Desktop/PBCAR")   ### CHANGE FILE DIRECTORY
 
-# b) CHANGE THE NAME OF THE FILE (MUST BE A .csv file)
+### b) CHANGE THE NAME OF THE FILE (MUST BE A .csv file)
 
 heatmap.name <- "DATA.csv"
 
-# c) SELECT only the names of the variables you want to analyze
+### c) SELECT only the names of the variables you want to analyze
 
 heatmap.items <- c("Alpha_t1","Intensity_t1","Omax_w_t1","Pmax_w_t1","Breakpoint_t1")
 
-# d) TITLE for the heatmap (leave as "" to omit a title)
+### d) TITLE for the heatmap (leave as "" to omit a title)
 
 hmap.title <- "Heatmap Title"
 
 ##### ----------  OPTIONAL CHANGES:
 #################################################################################################
 
-# RENAME variables (if desired):
+### e) RENAME variables (if desired):
+
 item.rename <- c("Alpha", "Intensity","Omax","Pmax","Breakpoint")
 
-# SELECT and REORDER the variables for the heatmap
+### f) SELECT and REORDER the variables for the heatmap
 # ----- In order from left-to-right for x axis & bottom-to-top for y axis
 
 item.reorder <- c("Alpha","Breakpoint","Intensity","Omax","Pmax")
 
-# DENOTES the number of decimal points the correlation matrix is rounded to
-dec.points <- 2 ### CHANGE NUMBER OF DECIMAL POINTS FOR HEATMAP GRAPHIC
+### g) DENOTES the number of decimal points the correlation matrix is rounded to
+
+dec.points <- 2
 
 ### N.B. -- PAIRWISE COMPLETE OBSERVATIONS ARE USED:
 # "Pairwise Complete" is the exclusion of individuals with missing data for
