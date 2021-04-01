@@ -10,7 +10,7 @@ The rain cloud plot script contains instructions for user input, and gives sugge
 
 ### Packages:
 
-This script uses 'ggplot2' and 'gghalves' packages
+This script uses {ggplot2} and {gghalves} packages
 
 ### Changes Required:
 
@@ -43,9 +43,9 @@ The heatmap script utilizes 'pairwise complete' observations, meaning only indiv
 
 ### Packages:
 
-This script uses 'corrplot', 'Hmisc', 'ggplot2', and 'reshape2' packages. Make sure these are installed prior to running the script:
+This script uses {corrplot}, {Hmisc}, {ggplot2}, and {reshape2} packages. Make sure these are installed prior to running the script. For each of the package not already installed, copy and paste the following in the console, replacing the relvant package name in quotes:
 
-      install.packages('name of package')
+      install.packages("name of package")
 
 ### Changes Required:
 
