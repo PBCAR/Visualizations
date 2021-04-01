@@ -1,5 +1,5 @@
 # Visualizations
-A repository of scripts that can be used to create some of the most popular data visualizations at PBCAR
+A repository of scripts that can be used to create some of the newest data visualizations techniques (and the most popular at PBCAR!). These scripts and accompanying documentation (such as this READ ME file) are intended for non-R users.
 
 ## Rain Cloud Plots
 
