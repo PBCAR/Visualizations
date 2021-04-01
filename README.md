@@ -36,14 +36,16 @@ iii) Show/ suppress the legend (T/F) using `show.legend`
 
 ## Heatmaps
 
-The heatmap script utilizes 'pairwise complete' observations, meaning only individuals with missing data for the 2 variables being compared will be removed. User imput required at the beginning of the script only.
+The heatmap script utilizes 'pairwise complete' observations, meaning only individuals with missing data for the 2 variables being compared will be removed. User input required at the beginning of the script only.
 
 ![image](https://github.com/PBCAR/Visualizations/blob/main/Examples/heatmap.png)
 
 
 ### Packages:
 
-This script uses 'corrplot', 'Hmisc', 'ggplot2', and 'reshape2' packages
+This script uses 'corrplot', 'Hmisc', 'ggplot2', and 'reshape2' packages. Make sure these are installed prior to running the script:
+
+      install.packages('name of package')
 
 ### Changes Required:
 
