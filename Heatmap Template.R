@@ -14,7 +14,7 @@ heatmap.name <- "DATA.csv"
 
 ### c) SELECT only the names of the variables you want to analyze
 
-heatmap.items <- c("Alpha_t1","Intensity_t1","Omax_w_t1","Pmax_w_t1","Breakpoint_t1")
+heatmap.items <- c("Variable_3","Variable_4","Variable_1","Variable_2","Variable_5")
 
 ### d) TITLE for the heatmap (leave as "" to omit a title)
 
@@ -25,12 +25,12 @@ hmap.title <- "Heatmap Title"
 
 ### e) RENAME variables (if desired):
 
-item.rename <- c("Alpha", "Intensity","Omax","Pmax","Breakpoint")
+item.rename <- c("Var3", "Var4","Var1","Var2","Var5")
 
 ### f) SELECT and REORDER the variables for the heatmap
 # ----- In order from left-to-right for x axis & bottom-to-top for y axis
 
-item.reorder <- c("Alpha","Breakpoint","Intensity","Omax","Pmax")
+item.reorder <- c("Var1","Var2","Var3","Var4","Var5")
 
 ### g) DENOTES the number of decimal points the correlation matrix is rounded to
 
