@@ -75,3 +75,33 @@ ii) "heatmap.pvalues.csv" - A file of the p.values for each variable pair
 
 iii) "corr.pair.numbers.csv" - A file of the number of pairwise complete observations
 
+## Alluvial Plots (Sankey Plots)
+
+The alluvial plot script contains instructions for user input, and offers several customizations.
+
+![image](https://github.com/PBCAR/Visualizations/blob/main/Examples/alluvials.png)
+
+
+### Packages:
+
+This script uses {dplyr}, {ggplot2}, and {ggalluvial} packages, along with the optional {viridis} package.
+
+### Changes Required:
+
+i) Set your working directory - This is the file location of your data to be analyzed. To set your working directory, go to:
+
+      Session > Set Working Directory > Choose Directory
+
+ii) Input the name of your data file (this script is set up to only import .csv files)
+
+iii) Input the names of your ID variable and time variable
+
+iv) Select the fill type. One of: c("numeric","percent")
+
+v) Changing the categorical variable to a factor and change order, as alluvials are filled from the top down (Line 46)
+
+### Other Possible Changes:
+
+a) Changes can be made to both the axis titles and main plot title (Line 91)
+
+b) Changes can be made to the colour palette by ensuring the {viridis} package is installed (Line 101)
