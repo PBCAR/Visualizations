@@ -96,7 +96,7 @@ ii) Input the name of your data file (this script is set up to only import .csv 
 
 iii) Input the names of your ID variable and time variable
 
-iv) Select the fill type. One of: c("numeric","percent")
+iv) Select the fill type ("numeric" or "percent")
 
 v) Changing the categorical variable to a factor and change order, as alluvials are filled from the top down (Line 46)
 
