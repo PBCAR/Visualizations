@@ -100,5 +100,4 @@ plot <- ggplot(DVIZ, aes(x = TIME, stratum = cat.var, alluvium = ID, y = percent
 
 library(viridis)
 
-plot +
-scale_fill_viridis(discrete = T)
+plot + scale_fill_viridis(discrete = T)
