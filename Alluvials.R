@@ -6,7 +6,7 @@
 #################################################################################################
 ### a) CHANGE file directory - GO TO: SESSION > SET WORKING DIRECTORY > CHOOSE DIRECTORY
 
-#setwd("~/Desktop/PBCAR")   ### CHANGE FILE DIRECTORY
+setwd("~/Desktop/PBCAR")   ### CHANGE FILE DIRECTORY
 
 ### b) CHANGE THE NAME OF THE FILE (MUST BE A .csv file)
 
