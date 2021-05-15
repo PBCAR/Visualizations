@@ -3,7 +3,12 @@ A repository of scripts that can be used to create some of the newest data visua
 
 ## Rain Cloud Plots
 
-The rain cloud plot script contains instructions for user input, and gives suggestions for changes that can be made to tweak the visualization.
+Rain cloud plots are cited as a transparent approach to data visualization. To learn more about the original creators of this technique, see: 
+
+      Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization
+      [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63 (https://doi.org/10.12688/wellcomeopenres.15191.2)
+
+The rain cloud plot script in this repository contains instructions for user input, and gives suggestions for changes that can be made to tweak the visualization.
 
 ![image](https://github.com/PBCAR/Visualizations/blob/main/Examples/raincloud.png)
 
