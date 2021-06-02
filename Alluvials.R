@@ -58,7 +58,7 @@ if(type_count == "numeric"){
 #################################################################################################
 
 if(type_count == "numeric"){
-plot <- ggplot(DVIZ, aes(x = TIME, stratum = cat.var, alluvium = ID,y = percent,
+plot <- ggplot(DVIZ, aes(x = TIME, stratum = cat.var, alluvium = ID,y = n,
                          fill = cat.var, label = cat.var)) +
 scale_x_discrete(expand = c(.1, .1)) +
 geom_flow(alpha = 0.5, show.legend = F) +
