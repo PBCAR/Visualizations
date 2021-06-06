@@ -5,8 +5,7 @@ A repository of scripts that can be used to create some of the newest data visua
 
 Rain cloud plots are cited as a transparent approach to data visualization. To learn more about the original creators of this technique, see: 
 
-      Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization
-      [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63 (https://doi.org/10.12688/wellcomeopenres.15191.2)
+> Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63 (https://doi.org/10.12688/wellcomeopenres.15191.2)
 
 The rain cloud plot script in this repository contains instructions for user input, and gives suggestions for changes that can be made to tweak the visualization.
 
@@ -110,3 +109,13 @@ v) Changing the categorical variable to a factor and change order, as alluvials 
 a) Changes can be made to both the axis titles and main plot title (Line 91)
 
 b) Changes can be made to the colour palette by ensuring the {viridis} package is installed (Line 101)
+
+## Corset Plots
+
+![image](https://github.com/PBCAR/Visualizations/blob/main/Examples/corset.png)
+
+Corset plots are used to show the heterogeneity of change in discrete repeat measures data at 2 time points.
+
+They can be made using the {ggcorset} package. To use this package, refer to the downloading instructions and use instructions available here:
+
+https://github.com/kbelisar/ggcorset
