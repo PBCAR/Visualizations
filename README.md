@@ -112,10 +112,7 @@ b) Changes can be made to the colour palette by ensuring the {viridis} package i
 
 ## Corset Plots
 
-![image](https://github.com/PBCAR/Visualizations/blob/main/Examples/corset.png)
 
 Corset plots are used to show the heterogeneity of change in discrete repeat measures data at 2 time points.
 
-They can be made using the {ggcorset} package. To use this package, refer to the downloading instructions and use instructions available here:
-
-https://github.com/kbelisar/ggcorset
+They can be made using the {ggcorset} package. To use this package, refer to the downloading instructions and use instructions available here: https://github.com/kbelisar/ggcorset
