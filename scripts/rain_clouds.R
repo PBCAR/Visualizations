@@ -6,13 +6,13 @@
 
 library(ggplot2); library(gghalves)
 
-### Example are provided using the mock data, with various types of rain cloud plots created:
+### Examples are provided, with various types of rain cloud plots created:
 
 # 1: Plot with 1 categorical & 1 continuous variable
 # 2A: Plot with 1 categorical variable (faceted), 1 time variable, & 1 continuous variable
 # 2B: Plot with 1 categorical variable (faceted), 1 time variable (colour only), & 1 continuous variable
 
-### NOTE: the coord_flip() function of ggplot2 is used to accommodate the use of the half-violins,
+### NOTE: the coord_flip() function of ggplot2 is used to accommodate the use of half-violins,
 ### meaning that the x variable maps onto the y-axis, and the y variable maps onto the x-axis
 
 ##### ----------  DATA PREPARATION
@@ -98,7 +98,7 @@ dviz$gender <- factor(dviz$gender, levels = c(1,2,0), labels = c("Female","Non-B
     scale_fill_manual("Time", values = c("#b8652c","#2c7fb8")) + # custom fill (in order of factor)
     theme(axis.title = element_text(face = "bold", size = 20), # customize axis titles
           axis.text = element_text(face = "bold", size = 15), # customize axis text
-          plot.title = element_text(face = "bold", size = 30, hjust = 0.5),
+          plot.title = element_text(face = "bold", size = 30, hjust = 0.5), # customize plot title
           strip.text = element_text(size = 15, face = "bold"), # change facet titles
           legend.position = "bottom")) # change legend location
 
@@ -109,7 +109,8 @@ dviz$gender <- factor(dviz$gender, levels = c(1,2,0), labels = c("Female","Non-B
 
 ### x = space holder to put variables on same axis line
 ### y = the continuous variable measured
-### fill and colour = categorical variable 2 (occupy same space on x axis)
+### fill and colour = categorical variable 1 (occupy same space on x axis)
+### faceted = categorical variable 2
 
 (viz.plot <- ggplot(dviz, aes(x = "overall", y = total_drinks, fill = time, colour = time)) + 
    # smaller x in position_nudge to better centre the plot
@@ -135,6 +136,6 @@ dviz$gender <- factor(dviz$gender, levels = c(1,2,0), labels = c("Female","Non-B
           axis.text.x = element_text(face = "bold", size = 15), # customize x-axis text
           axis.text.y = element_blank(), # remove "overall" label from axis text
           axis.ticks.y = element_blank(), # remove "overall" label ticks
-          plot.title = element_text(face = "bold", size = 30, hjust = 0.5),
+          plot.title = element_text(face = "bold", size = 30, hjust = 0.5), # customize plot title
           strip.text = element_text(size = 15, face = "bold"), # change facet titles
           legend.position = "bottom")) # change legend location
