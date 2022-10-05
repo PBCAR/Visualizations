@@ -61,7 +61,7 @@ dviz <- dviz %>% group_by(time) %>% mutate(percent = (n/sum(n))*100)
      scale_x_discrete(expand = c(.1, .1)) +
      geom_stratum(alpha = 1, show.legend = T) + # columns/ bars
      geom_flow(alpha = 0.5, show.legend = F) + # the flow between columns
-     # text in each bar section used to show percent. Omit aes portion of code to have category name instead
+     # text in each bar section used to show percent. omit aes portion of code to have category name instead
      geom_text(stat = "stratum", aes(label = scales::percent(after_stat(prop), accuracy = 1)), size = 6))
 
 ### MAKE changes to overall aesthetic
@@ -73,8 +73,8 @@ dviz <- dviz %>% group_by(time) %>% mutate(percent = (n/sum(n))*100)
         scale_colour_manual("Cannabis Use Frequency", values = c("red4","orange3","gold2","royalblue3")) + # custom colour (in order of factor)
         scale_fill_manual("Cannabis Use Frequency", values = c("red4","orange3","gold2","royalblue3")) + # custom fill (in order of factor)
         theme(axis.title = element_text(face = "bold", size = 20), # customize axis titles
-              axis.text.x = element_text(face = "bold", size = 15), # customize axis text
-              axis.text.y = element_text(face = "bold", size = 15),
+              axis.text.x = element_text(face = "bold", size = 15), # customize x-axis text
+              axis.text.y = element_text(face = "bold", size = 15), # customize y-axis text
               legend.position = "bottom", # change legend location
               legend.title = element_text(size = 15), # customize legend title
               legend.text = element_text(size = 10), # customize legend text
