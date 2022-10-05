@@ -1,6 +1,6 @@
 # Visualizations
 
-A repository of scripts that can be used to create some of the individual-level data visualizations. These visualization techniques are among the most popular at PBCAR. The corresponding example figures were created from the scripts themselves, making it easy to see what parts of the code correspond to the produced visualization.
+A repository of scripts that can be used to reproduce some of the individual-level data visualization techniques that are popular at PBCAR. The corresponding example figures were created from the scripts themselves, making it easy to see what parts of the code correspond to the produced visualization.
 
 These scripts accompany a small mock data set in wide format. The data set consists of 500 hypothetical participants whose data were collected at baseline, with follow-up data available for cannabis and alcohol outcomes. The variables are as follows:
 
@@ -53,7 +53,7 @@ Custom palettes are easily adapted in visualizations, by using `scale_colour_man
 
 ## Alluvial Plots (Sankey Plots)
 
-The alluvial plot script contains the necessary data manipulation to create alluvial plots. Alluvial plots allow us to see the movement of participants between categories (in the example, cannabis use frequency) across time.
+The alluvial plot script ([alluvials.R](https://github.com/PBCAR/Visualizations/blob/main/scripts/alluvials.R)) contains the necessary data manipulation to create alluvial plots. Alluvial plots allow us to see the movement of participants between categories (in the example, cannabis use frequency) across time.
 
 ![](examples/alluvial_example.png)
 
@@ -69,7 +69,7 @@ Rain cloud plots are cited as a transparent approach to data visualization. To l
 
 *Allen M, Poggiali D, Whitaker K et al. Raincloud plots: a multi-platform tool for robust data visualization [version 2; peer review: 2 approved]. Wellcome Open Res 2021, 4:63 (<https://doi.org/10.12688/wellcomeopenres.15191.2>)*
 
-The rain cloud plot script in this repository provide a few different examples. The first example of a rain cloud plot has one categorical variable (gender) and one continuous variable (total drinks per week):
+The rain cloud plot script ([rain_clouds.R](https://github.com/PBCAR/Visualizations/blob/main/scripts/rain_clouds.R)) in this repository provide a few different examples. The first example of a rain cloud plot has one categorical variable (gender) and one continuous variable (total drinks per week):
 
 ![](examples/raincloud_example1.png)
 
@@ -94,7 +94,6 @@ This script also uses the [gghalves](https://github.com/erocoar/gghalves) packag
 Corset plots are used to show the heterogeneity of change in repeat measures data at 2 time points. They can be made using the [ggcorset](https://github.com/kbelisar/ggcorset) package. To use this package, please refer to the downloading instructions and detailed examples provided with the package.
 
 ![image](https://github.com/kbelisar/ggcorset/blob/main/visualizations/example_corset_plot_github_eyelets.png)
-
 
 Alternatively, an example has been provided with the mock data set:
 
