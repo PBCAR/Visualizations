@@ -4,31 +4,19 @@ A repository of scripts that can be used to create some of the individual-level 
 
 These scripts accompany a small mock data set in wide format. The data set consists of 500 hypothetical participants whose data were collected at baseline, with follow-up data available for cannabis and alcohol outcomes. The variables are as follows:
 
-+---------------+---------------------------------------------------------------------------------------------------+
 | Variable      | Definition                                                                                        |
-+===============+===================================================================================================+
+|---------------|---------------------------------------------------------------------------------------------------|
 | id            | participant id                                                                                    |
-+---------------+---------------------------------------------------------------------------------------------------+
 | gender        | Gender at baseline (t1): 0 = Male; 1 = Female; 2 = Non-Binary                                     |
-+---------------+---------------------------------------------------------------------------------------------------+
 | age           | Age in years at baseline (t1)                                                                     |
-+---------------+---------------------------------------------------------------------------------------------------+
 | cig_smoker    | 0 = Non-Smoker; 1 = Smoker at baseline (t1)                                                       |
-+---------------+---------------------------------------------------------------------------------------------------+
 | number_cigs   | Number of cigarettes smoked on average per day at baseline (t1)                                   |
-+---------------+---------------------------------------------------------------------------------------------------+
 | cann_assist1  | Frequency of typical cannabis use at baseline (t1): 0 = None; 1 = Monthly; 2 = Weekly; 3 = Daily  |
-+---------------+---------------------------------------------------------------------------------------------------+
 | cann_assist2  | Frequency of typical cannabis use at follow-up (t2): 0 = None; 1 = Monthly; 2 = Weekly; 3 = Daily |
-+---------------+---------------------------------------------------------------------------------------------------+
 | drink_days1   | Typical number of drinking days per week at baseline (t1)                                         |
-+---------------+---------------------------------------------------------------------------------------------------+
 | drink_days2   | Typical number of drinking days per week at follow-up (t2)                                        |
-+---------------+---------------------------------------------------------------------------------------------------+
 | total_drinks1 | Number of drinks consumed on average per week at baseline (t1)                                    |
-+---------------+---------------------------------------------------------------------------------------------------+
 | total_drinks2 | Number of drinks consumed on average per week at follow-up (t2)                                   |
-+---------------+---------------------------------------------------------------------------------------------------+
 
 In the scripts, this mock data set is assigned the name 'data.viz', assuming the .csv file is downloaded and saved to the set working directory. However, for ease of access, the data can be downloaded directly from this GitHub and imported into the R environment by using the following code:
 
@@ -40,7 +28,7 @@ Any modifications made to the data structure or variables themselves are documen
 
 All visualizations are produced by [ggplot2](https://github.com/tidyverse/ggplot2), as well as ggplot2 [extension packages](https://exts.ggplot2.tidyverse.org/gallery/). The ggplot2 package is based on the grammar of graphics, providing a systematic way to approach data visualization. For further information on how to customize ggplot2, the cheat sheet can be consulted:
 
-<a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-visualization-cheatsheet-thumbs.png" width=900" height="300"/></a>
+<a href="https://github.com/rstudio/cheatsheets/blob/master/data-visualization.pdf"><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/thumbnails/data-visualization-cheatsheet-thumbs.png" width="970" height="400"/></a>
 
 ### Data Format (1 Observation per Row)
 
