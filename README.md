@@ -53,7 +53,7 @@ Custom palettes are easily adapted in visualizations, by using `scale_colour_man
 
 The alluvial plot script contains the necessary data manipulation to create alluvial plots. Alluvial plots allow us to see the movement of participants between categories (in the example, cannabis use frequency) across time.
 
-![](Examples/alluvial_example.png)
+![](examples/alluvial_example.png)
 
 The script also walks users through changing their data into long format, and how to re-categorize their variables so that the alluvials are ordered from highest (top) to lowest category (bottom).
 
@@ -69,17 +69,17 @@ Rain cloud plots are cited as a transparent approach to data visualization. To l
 
 The rain cloud plot script in this repository provide a few different examples. The first example of a rain cloud plot has one categorical variable (gender) and one continuous variable (total drinks per week):
 
-![](Examples/raincloud_example1.png)
+![](examples/raincloud_example1.png)
 
 The second example has two versions of how to include a second categorical variable (in this instance, time):
 
 A. The first category (gender) is faceted with time occupying different positions along the axis:
 
-![](Examples/raincloud_example2A.png)
+![](examples/raincloud_example2A.png)
 
 B. The first category (gender) is faceted with time occupying the same position along the axis:
 
-![](Examples/raincloud_example2B.png)
+![](examples/raincloud_example2B.png)
 
 The script also walks users through how to change their data into long format, as well as how to change the categories to factors prior to plotting.
 
@@ -96,7 +96,7 @@ Corset plots are used to show the heterogeneity of change in repeat measures dat
 
 Alternatively, an example has been provided with the mock data set:
 
-![](Examples/corset_example.png)
+![](examples/corset_example.png)
 
 ### Example with the mock data set:
 
