@@ -93,7 +93,7 @@ This script also uses the [gghalves](https://github.com/erocoar/gghalves) packag
 
 Corset plots are used to show the heterogeneity of change in repeat measures data at 2 time points. They can be made using the [ggcorset](https://github.com/kbelisar/ggcorset) package. To use this package, please refer to the downloading instructions and detailed examples provided with the package.
 
-![image](https://github.com/kbelisar/ggcorset/blob/main/visualizations/example_corset_plot_github_faceted.png)
+![image](https://github.com/kbelisar/ggcorset/blob/main/visualizations/example_corset_plot_github_eyelets.png)
 
 
 Alternatively, an example has been provided with the mock data set:
