@@ -20,7 +20,9 @@ These scripts accompany a small mock data set in wide format. The data set consi
 
 In the scripts, this mock data set is assigned the name 'data.viz', assuming the .csv file is downloaded and saved to the set working directory. However, for ease of access, the data can be downloaded directly from this GitHub and imported into the R environment by using the following code:
 
-`data.viz <- read.csv("https://raw.githubusercontent.com/PBCAR/Visualizations/main/data/PBCAR_Mock_Data.csv")`
+```{r}
+data.viz <- read.csv("https://raw.githubusercontent.com/PBCAR/Visualizations/main/data/PBCAR_Mock_Data.csv")
+```
 
 Any modifications made to the data structure or variables themselves are documented in the examples for completeness. Therefore, any of the visualizations produced in this repository can be reproduced.
 
