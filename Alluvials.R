@@ -2,102 +2,80 @@
 ###########################     ALLUVIALS (SANKEY PLOTS) TEMPLATE    ############################
 #################################################################################################
 
-##### ----------  REQUIRED CHANGES BY USER:
-#################################################################################################
-### a) CHANGE file directory - GO TO: SESSION > SET WORKING DIRECTORY > CHOOSE DIRECTORY
+### Required packages
 
-setwd("~/Desktop/PBCAR")   ### CHANGE FILE DIRECTORY
-
-### b) CHANGE THE NAME OF THE FILE (MUST BE A .csv file)
-
-df.name <- "PBCAR.csv"
-
-### c) CHANGE THE NAME OF THE ID VARIABLE
-
-id.var <- "id"
-
-### d) CHANGE THE NAME OF THE TIME VARIABLE
-
-time.var <- "wave"
-
-### e) SELECT FILL TYPE - EITHER: "numeric" or "percent"
-
-type_count <- "percent"
+library(ggplot2); library(ggalluvial); library(dplyr)
 
 ##### ----------  DATA PREPARATION
 #################################################################################################
 
-library(dplyr)
-library(ggplot2)
-library(ggalluvial)
+### a) CHANGE file directory - GO TO: SESSION > SET WORKING DIRECTORY > CHOOSE DIRECTORY
 
-### IMPORT DATA
-DATA.VIZ <- read.csv(df.name)
+setwd("~/Desktop/PBCAR")   ### OR CHANGE FILE DIRECTORY HERE
 
-### ASSIGN VARIABLE NAMES
-DATA.VIZ <- DATA.VIZ %>% rename(ID = all_of(id.var),
-                                TIME = all_of(time.var))
+### b) SELECT NAME of file to read
 
-####### CHANGE: TRANSFORM THE CATEGORICAL VARIABLE
-# -------------- i) Name of the categorical variable after `DATA.VIZ$`
-# -------------- ii) Level values (reverse categories - the levels will fill from the top down)
-# -------------- iii) Label values can be used to rename the values
+data.viz <- read.csv("Data_File.csv") ### READS in a .csv file
 
-DATA.VIZ$cat.var <- factor(DATA.VIZ$variable.name,           # i) CHANGE VARIABLE NAME HERE
-                           levels = c(3,2,1),                # ii) CHANGE LEVELS
-                           labels = c("three","two","one"))  # iii) CHANGE LABELS
+### c) CHANGE to long format if required:
 
-if(type_count == "numeric"){
-  DVIZ <- DATA.VIZ %>% group_by(ID,TIME) %>% add_count(cat.var)
-} else if(type_count == "percent"){
-  DVIZ <- DATA.VIZ %>% group_by(ID,TIME) %>% add_count(cat.var)
-  DVIZ <- DVIZ %>% group_by(TIME) %>% mutate(percent = (n/sum(n))*100)
-}
+dviz <- reshape(as.data.frame(data.viz), idvar = "id", timevar = "time",
+                varying = c("total_drinks1","total_drinks2","drink_days1","drink_days2",
+                            "cann_assist1","cann_assist2"),
+                direction = "long", sep = "")
+
+dviz$time <- factor(dviz$time, levels = c(1,2), labels = c("Baseline","Follow-Up"))
+
+##### ----------  DATA PREPARATION
+#################################################################################################
+
+### REMOVE missing observations (if desired) so that they do not appear in the visualization
+
+dviz <- dviz[!is.na(dviz$cann_assist),]
+
+### RE-ORDER the categorical variable
+
+dviz$cann_assist <- factor(dviz$cann_assist,
+                           levels = c(3,2,1,0), # from left to right, alluvial categories will appear from top to bottom
+                           labels = c("Daily","Weekly","Monthly","None")) # change names of levels
+
+### ADD count data (n) to data frame by id variable and time
+
+dviz <- dviz %>% group_by(id, time) %>% add_count(cann_assist)
+
+### IF wanting alluvials to represent percent, mutate counts to percentages
+
+dviz <- dviz %>% group_by(time) %>% mutate(percent = (n/sum(n))*100)
 
 ##### ----------  VISUALIZATION
 #################################################################################################
 
-if(type_count == "numeric"){
-plot <- ggplot(DVIZ, aes(x = TIME, stratum = cat.var, alluvium = ID,y = n,
-                         fill = cat.var, label = cat.var)) +
-scale_x_discrete(expand = c(.1, .1)) +
-geom_flow(alpha = 0.5, show.legend = F) +
-geom_stratum(alpha = 0.5, show.legend = F) +
-  geom_text(stat = "stratum") +
-  theme_classic() +
-  theme(axis.title.x = element_text(face = "bold"),
-        axis.title.y = element_text(face = "bold"),
-        title = element_text(face = "bold", size = 15))
-} else if(type_count == "percent"){
-plot <- ggplot(DVIZ, aes(x = TIME, stratum = cat.var, alluvium = ID, y = percent,
-                        fill = cat.var, label = cat.var)) +
-  scale_x_discrete(expand = c(.1, .1)) +
-  geom_flow(alpha = 0.5, show.legend = F) +
-  geom_stratum(alpha = 0.5, show.legend = F) +
-  geom_text(stat = "stratum") +
-  theme_classic() +
-  theme(axis.title.x = element_text(face = "bold"),
-        axis.title.y = element_text(face = "bold"),
-        title = element_text(face = "bold", size = 15))
-}
+### x = time
+### y = percent (or if wanting counts, use y = n)
+### stratum = categorical variable
+### alluvium = the id variable
+### fill & label = categorical variable
 
-##### ----------  THE PLOT ABOVE IS THE FOUNDATION OF THE ALLUVIAL
-#################################################################################################
-### BELOW, ARE SOME CHANGES AND MODIFICATIONS THAT CAN BE MADE TO THIS FOUNDATION
+(viz.plot <- ggplot(dviz, aes(x = time, y = percent, stratum = cann_assist, alluvium = id,
+                              fill = cann_assist, label = cann_assist)) +
+     scale_x_discrete(expand = c(.1, .1)) +
+     geom_stratum(alpha = 1, show.legend = T) + # columns/ bars
+     geom_flow(alpha = 0.5, show.legend = F) + # the flow between columns
+     # text in each bar section used to show percent. Omit aes portion of code to have category name instead
+     geom_text(stat = "stratum", aes(label = scales::percent(after_stat(prop), accuracy = 1)), size = 6))
 
-(plot <- plot +
+### MAKE changes to overall aesthetic
 
-# ----- CHANGE THE TITLES OF THE X AND Y AXES (`xlab` & `ylab`, respectively)
-   xlab("Time") + ylab("") +
-  
-# ----- CHANGE THE TITLE OF THE PLOT
-   labs(title = "Title of Alluvial Plot"))
-
-
-##### ----------  OTHER CLOUD PLOT CHANGES TO MAKE
-#################################################################################################
-### Make the plot colour-blind friendly using the following package:
-
-library(viridis)
-
-plot + scale_fill_viridis(discrete = T)
+(viz.plot <- viz.plot + theme_classic() +
+        ggtitle("Alluvial Plot") + # add a title to the alluvial plot
+        xlab("") + # change x-axis title
+        ylab("%") + # change y-axis title
+        scale_colour_manual("Cannabis Use Frequency", values = c("red4","orange3","gold2","royalblue3")) + # custom colour (in order of factor)
+        scale_fill_manual("Cannabis Use Frequency", values = c("red4","orange3","gold2","royalblue3")) + # custom fill (in order of factor)
+        theme(axis.title = element_text(face = "bold", size = 20), # customize axis titles
+              axis.text.x = element_text(face = "bold", size = 15), # customize axis text
+              axis.text.y = element_text(face = "bold", size = 15),
+              legend.position = "bottom", # change legend location
+              legend.title = element_text(size = 15), # customize legend title
+              legend.text = element_text(size = 10), # customize legend text
+              plot.title = element_text(face = "bold", size = 30, hjust = 0.5))) # customize plot title
