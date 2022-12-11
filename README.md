@@ -122,6 +122,6 @@ data.viz$age_cat <- factor(data.viz$age_cat, levels = c(0,1,2), labels = c("<30"
         xlab("") + # change x-axis title
         ylab("Total Drinks per Week") + # change y-axis title
         scale_x_discrete(labels = c("Baseline","Follow-Up")) + # change time labels
-        guides(colour = guide_legend(override.aes = list(size = 3)))) # modify legend                                       
+        guides(colour = guide_legend(override.aes = list(linewidth = 3)))) # modify legend                                       
 
 ```
