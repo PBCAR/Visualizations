@@ -95,7 +95,7 @@ This script also uses the [gghalves](https://github.com/erocoar/gghalves) packag
 
 ## Lasagna Plots
 
-Lasagna plots are a great way to visualize the heterogeneity in data across variables on the same scale as one another. Lasagna 'layers' can be made up of either individual observations, or groups. The lasagna plot script ([rain_clouds.R](https://github.com/PBCAR/Visualizations/blob/main/scripts/lasagna.R)) in this repository provide an example of each grouping type.
+Lasagna plots are a great way to visualize the heterogeneity in data across variables on the same scale as one another. Lasagna 'layers' can be made up of either individual observations, or groups. The lasagna plot script ([lasagna.R](https://github.com/PBCAR/Visualizations/blob/main/scripts/lasagna.R)) in this repository provide an example of each grouping type.
 
 
 The first example shows lasagna plots with individuals as layers. The first column 'Medicinal Cannabis Use' has more individuals with high acceptability of regular medicinal use than recreational use.
