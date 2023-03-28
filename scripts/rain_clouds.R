@@ -2,15 +2,15 @@
 ##############################       RAIN CLOUD PLOT TEMPLATE     ###############################
 #################################################################################################
 
-### Required packages
+##### ----- Required packages
 
 library(ggplot2); library(gghalves)
 
-### Examples are provided, with various types of rain cloud plots created:
+##### ----- Examples are provided, with various types of rain cloud plots created:
 
-# 1: Plot with 1 categorical & 1 continuous variable
-# 2A: Plot with 1 categorical variable (faceted), 1 time variable, & 1 continuous variable
-# 2B: Plot with 1 categorical variable (faceted), 1 time variable (colour only), & 1 continuous variable
+## 1: Plot with 1 categorical & 1 continuous variable
+## 2A: Plot with 1 categorical variable (faceted), 1 time variable, & 1 continuous variable
+## 2B: Plot with 1 categorical variable (faceted), 1 time variable (colour only), & 1 continuous variable
 
 ### NOTE: the coord_flip() function of ggplot2 is used to accommodate the use of half-violins,
 ### meaning that the x variable maps onto the y-axis, and the y variable maps onto the x-axis
@@ -18,22 +18,20 @@ library(ggplot2); library(gghalves)
 ##### ----------  DATA PREPARATION
 #################################################################################################
 
-### a) CHANGE file directory - GO TO: SESSION > SET WORKING DIRECTORY > CHOOSE DIRECTORY
+### a) IMPORT DATA (example data provided):
 
-setwd("~/Desktop/PBCAR")   ### OR CHANGE FILE DIRECTORY HERE
+data.viz <- read.csv("https://raw.githubusercontent.com/PBCAR/Visualizations/main/data/PBCAR_Mock_Data.csv")
 
-### b) SELECT NAME of file to read
-
-data.viz <- read.csv("Data_File.csv") ### READS in a .csv file
-
-### c) CHANGE to long format if required:
+### b) CHANGE to long format if required:
 
 dviz <- reshape(as.data.frame(data.viz), idvar = "id", timevar = "time",
                 varying = c("total_drinks1","total_drinks2","drink_days1","drink_days2",
                             "cann_assist1","cann_assist2"),
                 direction = "long", sep = "")
 
-### d) If the categorical variable(s) is/are represented numerically, then manually change to a factor:
+### c) If time or categorical variable(s) are represented numerically, then manually change to a factor:
+
+### For the wide data format, gender needs to be changed to a factor
 
 data.viz$gender <- factor(data.viz$gender, levels = c(1,2,0), labels = c("Female","Non-Binary","Male"))
 
@@ -139,3 +137,4 @@ dviz$gender <- factor(dviz$gender, levels = c(1,2,0), labels = c("Female","Non-B
           plot.title = element_text(face = "bold", size = 30, hjust = 0.5), # customize plot title
           strip.text = element_text(size = 15, face = "bold"), # change facet titles
           legend.position = "bottom")) # change legend location
+

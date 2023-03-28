@@ -4,19 +4,23 @@ A repository of scripts that can be used to reproduce some of the individual-lev
 
 These scripts accompany a small mock data set in wide format. The data set consists of 500 hypothetical participants whose data were collected at baseline, with follow-up data available for cannabis and alcohol outcomes. The variables are as follows:
 
-| Variable      | Definition                                                                                        |
-|---------------|---------------------------------------------------------------------------------------------------|
-| id            | participant id                                                                                    |
-| gender        | Gender at baseline (t1): 0 = Male; 1 = Female; 2 = Non-Binary                                     |
-| age           | Age in years at baseline (t1)                                                                     |
-| cig_smoker    | 0 = Non-Smoker; 1 = Smoker at baseline (t1)                                                       |
-| number_cigs   | Number of cigarettes smoked on average per day at baseline (t1)                                   |
-| cann_assist1  | Frequency of typical cannabis use at baseline (t1): 0 = None; 1 = Monthly; 2 = Weekly; 3 = Daily  |
-| cann_assist2  | Frequency of typical cannabis use at follow-up (t2): 0 = None; 1 = Monthly; 2 = Weekly; 3 = Daily |
-| drink_days1   | Typical number of drinking days per week at baseline (t1)                                         |
-| drink_days2   | Typical number of drinking days per week at follow-up (t2)                                        |
-| total_drinks1 | Number of drinks consumed on average per week at baseline (t1)                                    |
-| total_drinks2 | Number of drinks consumed on average per week at follow-up (t2)                                   |
+| Variable      | Definition                                                                                                            |
+|---------------|-----------------------------------------------------------------------------------------------------------------------|
+| id            | participant id                                                                                                        |
+| gender        | Gender at baseline (t1): 0 = Male; 1 = Female; 2 = Non-Binary                                                         |
+| age           | Age in years at baseline (t1)                                                                                         |
+| cig_smoker    | 0 = Non-Smoker; 1 = Smoker at baseline (t1)                                                                           |
+| number_cigs   | Number of cigarettes smoked on average per day at baseline (t1)                                                       |
+| cann_assist1  | Frequency of typical cannabis use at baseline (t1): 0 = None; 1 = Monthly; 2 = Weekly; 3 = Daily                      |
+| cann_assist2  | Frequency of typical cannabis use at follow-up (t2): 0 = None; 1 = Monthly; 2 = Weekly; 3 = Daily                     |
+| drink_days1   | Typical number of drinking days per week at baseline (t1)                                                             |
+| drink_days2   | Typical number of drinking days per week at follow-up (t2)                                                            |
+| total_drinks1 | Number of drinks consumed on average per week at baseline (t1)                                                        |
+| total_drinks2 | Number of drinks consumed on average per week at follow-up (t2)                                                       |
+| perception1   | Perception of regular medicinal cannabis use from 1 = 'Not at all Acceptable' to 5 = Completely Acceptable            |
+| perception2   | Perception of regular recreational cannabis use from 1 = 'Not at all Acceptable' to 5 = 'Completely Acceptable'       |
+| perception3   | Perception of regular alcohol use from 1 = 'Not at all Acceptable' to 5 = 'Completely Acceptable'                     |
+
 
 In the scripts, this mock data set is assigned the name 'data.viz', assuming the .csv file is downloaded and saved to the set working directory. However, for ease of access, the data can be downloaded directly from this GitHub and imported into the R environment by using the following code:
 
@@ -89,13 +93,26 @@ The script also walks users through how to change their data into long format, a
 
 This script also uses the [gghalves](https://github.com/erocoar/gghalves) package.
 
+## Lasagna Plots
+
+Lasagna plots are a great way to visualize the heterogeneity in data across variables on the same scale as one another. Lasagna 'layers' can be made up of either individual observations, or groups. The lasagna plot script ([rain_clouds.R](https://github.com/PBCAR/Visualizations/blob/main/scripts/lasagna.R)) in this repository provide an example of each grouping type.
+
+
+The first example shows lasagna plots with individuals as layers. The first column 'Medicinal Cannabis Use' has more individuals with high acceptability of regular medicinal use than recreational use.
+
+![](examples/lasagna_example1.png)
+
+The second example layers the lasagna plot by the cannabis frequency variable at baseline, showing a mean average of acceptability that is higher for both medicinal and recreational cannabis use for those who use cannabis more regularly.
+
+![](examples/lasagna_example2.png)
+
+### Packages:
+
+This script also uses the [dplyr](https://github.com/tidyverse/dplyr) package.
+
 ## Corset Plots
 
-Corset plots are used to show the heterogeneity of change in repeat measures data at 2 time points. They can be made using the [ggcorset](https://github.com/kbelisar/ggcorset) package. To use this package, please refer to the downloading instructions and detailed examples provided with the package.
-
-![image](https://github.com/kbelisar/ggcorset/blob/main/visualizations/example_corset_plot_github_eyelets.png)
-
-Alternatively, an example has been provided with the mock data set:
+Corset plots are used to show the heterogeneity of change in repeat measures data at 2 time points. They can be made using the [ggcorset](https://github.com/kbelisar/ggcorset) package. To use this package, please refer to the downloading instructions and detailed examples provided with the package. Alternatively, an example has been provided with the mock data set:
 
 ![](examples/corset_example.png)
 
@@ -114,10 +131,11 @@ data.viz$age_cat <- ifelse(data.viz$age<30,0,
 
 data.viz$age_cat <- factor(data.viz$age_cat, levels = c(0,1,2), labels = c("<30","30 - 39","40+"))
 
-(plot <- gg_corset(data.viz, y_var1 = "total_drinks1", y_var2 = "total_drinks2", 
-                   group = "id", c_var = "age_cat", eyelets = T, faceted = T) +
+(plot <- gg_corset(data.viz, y_var1 = "total_drinks1", y_var2 = "total_drinks2", group = "id", c_var = "age_cat", 
+                   eyelets = T, faceted = T, facet_design = "group", line_size = 0.5) +
         theme_ggcorset() + # a ggcorset theme!
         scale_colour_manual("Age Category", values = c("#879a87","#8da2bc","#b26666"))  + # custom colour
+        scale_fill_manual("Age Category", values = c("#879a87","#8da2bc","#b26666"))  + # custom colour
         ggtitle("Change in Drinks per Week by Age Category") + # add a title to the corset plot
         xlab("") + # change x-axis title
         ylab("Total Drinks per Week") + # change y-axis title

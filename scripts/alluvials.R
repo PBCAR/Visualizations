@@ -9,20 +9,18 @@ library(ggplot2); library(ggalluvial); library(dplyr)
 ##### ----------  DATA PREPARATION
 #################################################################################################
 
-### a) CHANGE file directory - GO TO: SESSION > SET WORKING DIRECTORY > CHOOSE DIRECTORY
+### a) IMPORT DATA (example data provided):
 
-setwd("~/Desktop/PBCAR")   ### OR CHANGE FILE DIRECTORY HERE
+data.viz <- read.csv("https://raw.githubusercontent.com/PBCAR/Visualizations/main/data/PBCAR_Mock_Data.csv")
 
-### b) SELECT NAME of file to read
-
-data.viz <- read.csv("Data_File.csv") ### READS in a .csv file
-
-### c) CHANGE to long format if required:
+### b) CHANGE to long format if required:
 
 dviz <- reshape(as.data.frame(data.viz), idvar = "id", timevar = "time",
                 varying = c("total_drinks1","total_drinks2","drink_days1","drink_days2",
                             "cann_assist1","cann_assist2"),
                 direction = "long", sep = "")
+
+### c) CHANGE time to a factor:
 
 dviz$time <- factor(dviz$time, levels = c(1,2), labels = c("Baseline","Follow-Up"))
 
@@ -67,7 +65,7 @@ dviz <- dviz %>% group_by(time) %>% mutate(percent = (n/sum(n))*100)
 ### MAKE changes to overall aesthetic
 
 (viz.plot <- viz.plot + theme_classic() +
-        ggtitle("Alluvial Plot") + # add a title to the alluvial plot
+        ggtitle("Alluvial Plot Example") + # add a title to the alluvial plot
         xlab("") + # change x-axis title
         ylab("%") + # change y-axis title
         scale_colour_manual("Cannabis Use Frequency", values = c("red4","orange3","gold2","royalblue3")) + # custom colour (in order of factor)
