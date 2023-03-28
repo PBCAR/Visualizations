@@ -22,7 +22,7 @@ These scripts accompany a small mock data set in wide format. The data set consi
 | perception3   | Perception of regular alcohol use from 1 = 'Not at all Acceptable' to 5 = 'Completely Acceptable'                     |
 
 
-In the scripts, this mock data set is assigned the name 'data.viz', assuming the .csv file is downloaded and saved to the set working directory. However, for ease of access, the data can be downloaded directly from this GitHub and imported into the R environment by using the following code:
+In the scripts, this mock data set is imported directly from GitHub:
 
 ```{r}
 data.viz <- read.csv("https://raw.githubusercontent.com/PBCAR/Visualizations/main/data/PBCAR_Mock_Data.csv")
