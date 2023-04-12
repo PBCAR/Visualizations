@@ -11,10 +11,6 @@ library(ggplot2); library(dplyr)
 ## 1: Plot with data aggregated at the individual level
 ## 2: Plot with data aggregated at the grouping level
 
-### For the purpose of giving an example, the `total_drinks` variable is visualized, however
-### lasagna plots work well to show the homogeneity within individuals or groups across variables
-### on the same scale (ex. Likert scales).
-
 ##### ----------  DATA PREPARATION
 #################################################################################################
 
