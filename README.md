@@ -2,7 +2,7 @@
 
 A repository of scripts that can be used to reproduce some of the individual-level data visualization techniques that are popular at PBCAR. The corresponding example figures were created from the scripts themselves, making it easy to see what parts of the code correspond to the produced visualization.
 
-These scripts accompany a small mock data set in wide format. The data set consists of 500 hypothetical participants whose data were collected at baseline, with follow-up data available for cannabis and alcohol outcomes. The variables are as follows:
+These scripts accompany a small mock data set in wide format. The data set consists of 500 hypothetical participants whose data were collected at baseline, with follow-up (t2) data available for cannabis and alcohol outcomes, and 3 additional follow-up time points (t3-t5) for total drinks per week. The variables are as follows:
 
 | Variable      | Definition                                                                                                            |
 |---------------|-----------------------------------------------------------------------------------------------------------------------|
@@ -17,6 +17,9 @@ These scripts accompany a small mock data set in wide format. The data set consi
 | drink_days2   | Typical number of drinking days per week at follow-up (t2)                                                            |
 | total_drinks1 | Number of drinks consumed on average per week at baseline (t1)                                                        |
 | total_drinks2 | Number of drinks consumed on average per week at follow-up (t2)                                                       |
+| total_drinks3 | Number of drinks consumed on average per week at follow-up (t3)                                                       |
+| total_drinks4 | Number of drinks consumed on average per week at follow-up (t4)                                                       |
+| total_drinks5 | Number of drinks consumed on average per week at follow-up (t5)                                                       |
 | perception1   | Perception of regular medicinal cannabis use from 1 = 'Not at all Acceptable' to 5 = Completely Acceptable            |
 | perception2   | Perception of regular recreational cannabis use from 1 = 'Not at all Acceptable' to 5 = 'Completely Acceptable'       |
 | perception3   | Perception of regular alcohol use from 1 = 'Not at all Acceptable' to 5 = 'Completely Acceptable'                     |
@@ -105,6 +108,22 @@ The first example shows lasagna plots with individuals as layers. The first colu
 The second example layers the lasagna plot by the cannabis frequency variable at baseline, showing a mean average of acceptability that is higher for both medicinal and recreational cannabis use for those who use cannabis more regularly.
 
 ![](examples/lasagna_example2.png)
+
+### Packages:
+
+This script also uses the [dplyr](https://github.com/tidyverse/dplyr) package.
+
+## Spaghetti Plots
+
+Keeping with the pasta theme, spaghetti plots are a way to visualize the trajectories of all participants to identify overall trends in the data but also see how closely individuals follow this trend. The spaghetti plot script ([spaghetti.R](https://github.com/PBCAR/Visualizations/blob/main/scripts/spaghetti.R)) in this repository provide an example of each grouping type.
+
+The first example shows spaghetti plots created by a grouping variable.
+
+![](examples/spaghetti_example1.png)
+
+The second example layers an overall mean trajectory by the grouping variable.
+
+![](examples/spaghetti_example2.png)
 
 ### Packages:
 
