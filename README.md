@@ -129,6 +129,16 @@ The second example layers an overall mean trajectory by the grouping variable.
 
 This script also uses the [dplyr](https://github.com/tidyverse/dplyr) package.
 
+## Waffle Plots
+
+After pasta comes dessert! Waffle plots are a way to visualize the breakdown of a grouping variable by representing n number of participants with a square. The waffle plot script ([waffle.R](https://github.com/PBCAR/Visualizations/blob/main/scripts/waffle.R)) in this repository provides an example using frequency of cannabis use.
+
+![](examples/waffle_example.png)
+
+### Packages:
+
+This script uses the [ggwaffle](https://liamgilbey.github.io/ggwaffle/) package.
+
 ## Corset Plots
 
 Corset plots are used to show the heterogeneity of change in repeat measures data at 2 time points. They can be made using the [ggcorset](https://github.com/kbelisar/ggcorset) package. To use this package, please refer to the downloading instructions and detailed examples provided with the package. Alternatively, an example has been provided with the mock data set:
